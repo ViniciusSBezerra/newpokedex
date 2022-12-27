@@ -16,7 +16,7 @@ function App() {
 
     axios
       .all(idPokemon.map((urls) => axios.get(urls)))
-      .then((res) => setKantoPokemons(res));
+      .then((res: any) => setKantoPokemons(res));
   };
 
   useEffect(() => {
