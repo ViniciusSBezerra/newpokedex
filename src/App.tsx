@@ -23,7 +23,7 @@ function App() {
     KantoPokemons();
   }, []);
 
-  if (!kantoPokemons) return "Carregando...";
+  if (!kantoPokemons) return <p>Carregando...</p>;
 
   const Container = styled.div`
     width: 100%;
@@ -70,7 +70,6 @@ function App() {
   return (
     <Container>
 
-      <SearchPokemon/>
       {kantoPokemons.map((data: any) => (
         <CardContainer key={data.data.name}>
           <ImagePokemon
@@ -80,13 +79,13 @@ function App() {
 
           <NamePokemon>{data.data.name}</NamePokemon>
 
-          <>
+          <div>
             <ContainerTypes>
               {data.data.types.map((types: any) => (
                 <TypePokemon>{types.type.name}</TypePokemon>
               ))}
             </ContainerTypes>
-          </>
+          </div>
         </CardContainer>
       ))}
     </Container>
