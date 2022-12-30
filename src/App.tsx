@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import axios from "axios";
 
 import styled from "styled-components";
-import { SearchPokemon } from "./components/searchPokemon/SearchPokemon";
+import { Types, TypeBug, TypeDark,
+  TypeDragon, TypeElectric, TypeFairy, TypeFighting, TypeFire, TypeFlying, TypeGhost, TypeGrass, TypeGround,
+  TypeIce, TypeNormal, TypePoison, TypePsychic, TypeRock, TypeSteel, TypeWater } from "./ConteinerTypesPokemon";
 
 function App() {
   const [kantoPokemons, setKantoPokemons] = useState<[]>();
@@ -43,6 +44,7 @@ function App() {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 5px;
   `;
 
   const ImagePokemon = styled.img``;
@@ -60,6 +62,11 @@ function App() {
     display: flex;
     justify-content: space-evenly;
     font-family: sans-serif;
+
+    border: solid 1px white;
+
+    border-radius: 50px;
+    padding: 5px;
   `;
 
   const ContainerTypes = styled.div`
@@ -69,7 +76,6 @@ function App() {
   `;
   return (
     <Container>
-
       {kantoPokemons.map((data: any) => (
         <CardContainer key={data.data.name}>
           <ImagePokemon
@@ -79,13 +85,34 @@ function App() {
 
           <NamePokemon>{data.data.name}</NamePokemon>
 
-          <div>
+          <>
             <ContainerTypes>
               {data.data.types.map((types: any) => (
-                <TypePokemon>{types.type.name}</TypePokemon>
+                <>{types.type.name === "grass" ? <TypeGrass>{types.type.name}</TypeGrass> : <Types>{types.type.name}</Types> &&
+                types.type.name === "fire" ? <TypeFire>{types.type.name}</TypeFire> : <Types>{types.type.name}</Types> &&
+                types.type.name === "poison" ? <TypePoison>{types.type.name}</TypePoison> : <Types>{types.type.name}</Types>&&
+                types.type.name === "flying" ? <TypeFlying>{types.type.name}</TypeFlying> : <Types>{types.type.name}</Types>&&
+                types.type.name === "bug" ? <TypeBug>{types.type.name}</TypeBug> : <Types>{types.type.name}</Types>&&
+                types.type.name === "poison" ? <TypePoison>{types.type.name}</TypePoison> : <Types>{types.type.name}</Types>&&
+                types.type.name === "water" ? <TypeWater>{types.type.name}</TypeWater> : <Types>{types.type.name}</Types> &&
+                types.type.name === "rock" ? <TypeRock>{types.type.name}</TypeRock> : <Types>{types.type.name}</Types> &&
+                types.type.name === "electric" ? <TypeElectric>{types.type.name}</TypeElectric> : <Types>{types.type.name}</Types>&&
+                types.type.name === "ghost" ? <TypeGhost>{types.type.name}</TypeGhost> : <Types>{types.type.name}</Types>&&
+                types.type.name === "ice" ? <TypeIce>{types.type.name}</TypeIce> : <Types>{types.type.name}</Types>&&
+                types.type.name === "psychic" ? <TypePsychic>{types.type.name}</TypePsychic> : <Types>{types.type.name}</Types> &&
+                types.type.name === "fairy" ? <TypeFairy>{types.type.name}</TypeFairy> : <Types>{types.type.name}</Types>&&
+                types.type.name === "normal" ? <TypeNormal>{types.type.name}</TypeNormal> : <Types>{types.type.name}</Types>&&
+                types.type.name === "ground" ? <TypeGround>{types.type.name}</TypeGround> : <Types>{types.type.name}</Types>&&
+                types.type.name === "steel" ? <TypeSteel>{types.type.name}</TypeSteel> : <Types>{types.type.name}</Types>&&
+                types.type.name === "fighting" ? <TypeFighting>{types.type.name}</TypeFighting> : <Types>{types.type.name}</Types>&&
+                types.type.name === "dark" ? <TypeDark>{types.type.name}</TypeDark> : <Types>{types.type.name}</Types>&&
+                types.type.name === "dragon" ? <TypeDragon>{types.type.name}</TypeDragon> : <Types>{types.type.name}</Types>
+              }</>
+
+
               ))}
             </ContainerTypes>
-          </div>
+          </>
         </CardContainer>
       ))}
     </Container>
