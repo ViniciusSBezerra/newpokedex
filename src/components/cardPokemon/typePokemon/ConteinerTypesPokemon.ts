@@ -2,19 +2,18 @@ import React from "react"
 
 import styled from "styled-components"
 
-
-
-
 export const Types = styled.div`
-    width: 100% ;
-    font-size: 1.25rem;
-    border-radius: 10px;
-    padding: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    font-size: 14px;
     color: white;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: sans-serif;
 
+    border: solid 1px white;
+
+    border-radius: 50px;
+    padding: 5px;
 `
 export const TypeGrass = styled(Types)`
     background-color: #9bcc50;
@@ -89,3 +88,4 @@ export const TypeDark = styled(Types)`
     background: linear-gradient(180deg, #707070 50%, #707070 50%);
     background-color: #707070;
 `
+
